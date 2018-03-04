@@ -1,0 +1,11 @@
+{
+  "must": {
+    "JSON_cityId": 1,
+    "JSON_SEName": "JSON Test Name"
+  },
+  "optional": {
+    "JSON_SEDir":"JSON Test Direction",
+    "JSON_SEBoss":"JSON Test Boss",
+    "JSON_SENum":123456
+  }
+}

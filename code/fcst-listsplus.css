@@ -1,0 +1,50 @@
+/* Modificacion especifica del CSS para mejorar la visibilidad de la pagina, tanto en escritorio como en moviles*/
+.card-body {
+   max-height: 60vh; 
+   overflow:auto;
+}
+
+input.form-control {
+  min-width:11vh;
+}
+
+/* Barra estilizada vertical - Para los elementos tabcontent */
+.card-body::-webkit-scrollbar-track
+{
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+   border-radius: 10px;
+   margin:1px;
+   background-color: #F5F5F5;
+}
+.card-body::-webkit-scrollbar
+{  
+   width: 6px;
+   background-color: #F5F5F5;
+}
+.card-body::-webkit-scrollbar-thumb
+{
+   border-radius: 10px;
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+   background-color: #555;
+}
+
+/* Barra estilizada vertical - Para los elementos tabcontent */
+.table-responsive::-webkit-scrollbar-track
+{
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+   border-radius: 10px;
+   margin:1px;
+   background-color: #F5F5F5;
+}
+.table-responsive::-webkit-scrollbar
+{  
+   width: 6px;
+   height: 6px;
+   background-color: #F5F5F5;
+}
+.table-responsive::-webkit-scrollbar-thumb
+{
+   border-radius: 10px;
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+   background-color: #555;
+}

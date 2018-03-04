@@ -1,0 +1,106 @@
+/*Estilo de los "botones" que hacen de pestañas. 
+Nota: Se edito el codigo para que no fueran botones sino links estilizados, ya que los botones entraban 
+en choque al estar dentro de un formulario. Se puede solucionar con JS (event.preventDefault()), pero por 
+sencille preferi evitar elementos HTML que dispararan el envio del formulario*/
+.tab {
+  overflow: hidden;
+  white-space: nowrap;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.tab:hover {
+  overflow: overlay;
+}
+
+.FCSTHidden {
+  display:none;
+}
+
+/* Editado del codigo original para permitir que la barra de desplazamiento personalizada aparezca. */
+.tab a {
+  display: inline-block;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 16px 16px;
+  font-weight:bold;
+  text-decoration: none;
+}
+
+/* Simple estilo, igual que el codigo original. */
+.tab a:hover {
+  background-color: #ddd;
+}
+.tab a.active {
+  background-color: #ccc;
+}
+
+/* Original + adicion de animacion al abrir la pestaña. */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+/*@-webkit-keyframes fadeEffect {
+   from {opacity: 0;}
+   to {opacity: 1;}
+}
+@keyframes fadeEffect {
+   from {opacity: 0;}
+   to {opacity: 1;}
+}
+*/
+
+/* Modificacion especifica del CSS para mejorar la visibilidad de la pagina, tanto en escritorio como en moviles*/
+.tabcontent {
+  max-height: 45vh; 
+  overflow:auto;
+}
+
+/* Debido a que me fue imposible encontrar una manera de utilizar dos clases al llamar
+el selector del pseudoelemento webkit-scrollbar, toco repetir el codigo :/ */
+
+/* Barra estilizada horizontal - Para los elementos tab */
+.tab::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  margin:1px;
+  background-color: #F5F5F5;
+}
+.tab::-webkit-scrollbar
+{  
+  height: 6px;
+  background-color: #F5F5F5;
+}
+.tab::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #555;
+}
+
+/* Barra estilizada vertical - Para los elementos tabcontent */
+.tabcontent::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  margin:1px;
+  background-color: #F5F5F5;
+}
+.tabcontent::-webkit-scrollbar
+{  
+  width: 6px;
+  background-color: #F5F5F5;
+}
+.tabcontent::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #555;
+}
