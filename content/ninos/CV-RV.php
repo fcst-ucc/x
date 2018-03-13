@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-10">
     <div class="card mt-3 mb-3 ml-3">
-      <div class="card-header text-center"><b>Registro de nuevo capital vital</b></div>
+      <div class="card-header text-center"><b>Registro de nuevo niño</b></div>
       <div class="card-body">
         <form id="CVForm">
           <!-- Tabs -->

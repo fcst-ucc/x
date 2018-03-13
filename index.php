@@ -20,8 +20,11 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
 
-    <!--Archivo en el que se encuentra todo el JavaScript y jQuery del sitio en general--> 
+    <!--Archivo en el que se encuentra la logica de los modulos--> 
+    <script src="code/hash.js"></script>
+    <!--Archivo en el que se encuentra el JS/jQuery que es compartido por todas las paginas--> 
     <script src="code/fcst.js"></script>
+
     <!-- CSS de las pestañas y las barras personalizadas (pagina con pestañas)-->
     <link href="code/fcst-tabs.css" rel="stylesheet">
 

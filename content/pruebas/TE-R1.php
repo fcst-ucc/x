@@ -48,7 +48,7 @@
                       </script>
                       <div class="col-md-4">
                         <label for="exampleInputName">Unidades a evaluar</label>
-                        <input class="form-control" id="TEUnits" name="sedeName" type="text" onblur="changeUnits()">
+                        <input class="form-control" id="TEUnits" name="sedeName" type="text" onblur="changeUnits('TEU')">
                       </div>
                       <div class="col-md-4">
                         <label for="exampleInputName">Abreviatura de las unidades</label>
