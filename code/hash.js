@@ -36,7 +36,7 @@ function hashLoad() {
       moduleLoad('mod', 'content/areas/AR-LV.php', 'Lista de areas');
       break;
     case "ARR":
-      moduleLoad('mod', 'content/areas/AR-RV.php', 'Registro de areas');
+      moduleLoad('mod', 'content/areas/AR-RV.php', 'Registro de areas', 'content/areas/TE-M.php');
       break;
     case "INL":
       moduleLoad('mod', 'content/ind/IN-LV.php', 'Lista de indicadores');
