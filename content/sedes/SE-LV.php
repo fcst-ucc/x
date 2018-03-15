@@ -33,9 +33,12 @@
           "targets": 0,
           "data": null,
           "defaultContent": "\
-            \<a class='btn btn-detail btn-secondary text-white'><span class='fa fa-w fa-list-ul'></span></a> \
-            \<a class='btn btn-delete btn-danger text-white'><span class='fa fa-w fa-times'></span></a>\
-            \<a class='btn btn-update btn-warning text-white'><span class='fa fa-w fa-edit'></span></a>"}]
+            \ <a class='btn btn-detail btn-secondary text-white'> \
+            \ <span class='fa fa-w fa-list-ul'></span></a> \
+            \ <a class='btn btn-delete btn-danger text-white'> \
+            \ <span class='fa fa-w fa-times'></span></a> \
+            \ <a class='btn btn-update btn-warning text-white'> \
+            \<span class='fa fa-w fa-edit'></span></a>"}]
     });
 //    llamarJSON();
     $('#dataTable tbody').on('click', '.btn-delete', function () {
@@ -57,7 +60,6 @@
     $('#dataTable tbody').on('click', '.btn-update', function () {
       var rowData = table.row($(this).parents('tr')).data();
       localStorage.SEUid = rowData[0];
-      alert(localStorage.SEUid);
       changeHash('SEU');
     });
 

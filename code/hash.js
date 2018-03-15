@@ -26,6 +26,9 @@ function hashLoad() {
     case "SER":
       moduleLoad('mod', 'content/sedes/SE-RV.php', 'Registro de nueva sede', 'content/sedes/TE-M.php');
       break;
+    case "SEU":
+      moduleLoad('mod', 'content/sedes/SE-UV.php', 'Edicion de sedes');
+      break;
     case "FAL":
       moduleLoad('mod', 'content/fases/FA-LV.php', 'Lista de fases');
       break;

@@ -1,40 +1,31 @@
 <!-- Contenido de la pagina -->
 <script>
-
   var abc = Number(localStorage.SEUid);
   var test;
-  alert(abc);
   //Con esto se borra el id que viene de la otra pagina
 //  localStorage.removeItem("SEUid");
 //  alert(localStorage.SEUid);
   var obj = {"id": abc};
   var formData = JSON.stringify(obj);
-  alert(formData);
   $.ajax({
     type: "POST",
     data: formData,
     dataType: 'json',
     url: 'content/sedes/SE-UL.php',
-    success: function (json) {
+    success: function(json) {
       test = json;
-      alert("\nNombre: " + test[0].name +
-              "\nCiudad: " + test[0].city +
-              "\nDir: " + test[0].dir +
-              "\nJefe: " + test[0].jefe +
-              "\nNum: " + test[0].num);
+      colocarDatos();
     }
   });
 
-//  if (test1 == 1) {
-//    alert('Test 1')
-//  }
-//  if (test !== null) {
-//    $("#SECity").val(data[0].city);
-//    document.getElementById(SEName).value = data[0].name;
-//    document.getElementById(SEAddress).value = data[0].dir;
-//    document.getElementById(SEBoss).value = data[0].jefe;
-//    document.getElementById(SEBossNum).value = data[0].num;
-//  }
+  function colocarDatos() {    
+      document.getElementById("SEName").value = test[0].name;
+      document.getElementById("SEAddress").value = test[0].dir;
+      document.getElementById("SEBoss").value = test[0].jefe;
+      document.getElementById("SEBossNum").value = test[0].num;
+      document.getElementById("SECity").value=test[0].city;
+      toogle('SECity', 'FCSTHidden');
+  }
 </script>
 <div class="row">
   <div id="anchoForm" class="col-6">
@@ -109,7 +100,8 @@
                         type: "POST",
                         url: "content/sedes/SE-RL.php",
                         data: formData,
-                        success: function () {},
+                        success: function() {
+                        },
                         dataType: "json",
                         contentType: "application/json"
                       });
@@ -118,7 +110,8 @@
 //                                sedeName: $('#SEName').val(), sedeAddress: $('#SEAddress').val(),
 //                                sedeBoss: $('#SEBoss').val(), sedeNum: $('#SEBossNum').val()});
               /* Alerts the results */
-              posting.done(function (data) {});
+              posting.done(function(data) {
+              });
 
               $(caller).modal('hide');
               $("#successModal").modal();

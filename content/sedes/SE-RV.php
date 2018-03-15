@@ -41,7 +41,7 @@
               </div>
             </div>
           </div>
-          <div class="FCSTHidden form-group">
+          <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputName">Responsable de la sede</label>
@@ -67,27 +67,19 @@
               var formData = JSON.stringify($("#SEForm").serializeObject());
               alert(formData);
               /* Send the data using post with element id name and name2*/
-              var posting =
-                      $.ajax({
-                        type: "POST",
-                        url: "content/sedes/SE-RL.php",
-                        data: formData,
-                        success: function () {},
-                        dataType: "json",
-                        contentType: "application/json"
-                      });
-//                      $.post("SE-Insert.php",
-//                              {ciudadList: $('#SECity').val(),
-//                                sedeName: $('#SEName').val(), sedeAddress: $('#SEAddress').val(),
-//                                sedeBoss: $('#SEBoss').val(), sedeNum: $('#SEBossNum').val()});
-              /* Alerts the results */
-              posting.done(function (data) {});
+              $.ajax({
+                type: "POST",
+                url: "content/sedes/SE-RL.php",
+                data: formData,
+                dataType: "json",
+                contentType: "application/json",
+                success: function() {
+                },
+              });
 
               $(caller).modal('hide');
               $("#successModal").modal();
             }
-            /* attach a submit handler to the form */
-            $("#SEForm").submit(Envio);
           </script>
 
 

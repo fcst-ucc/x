@@ -4,14 +4,9 @@
 include ('../../code/conn.php');
 
 $jsonCont = file_get_contents('php://input');
-var_dump($jsonCont);
 $content = json_decode($jsonCont, true);
-var_dump($content);
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-
 $ID = $content['id'];
-var_dump($ID);
 
 //Peticion de los datos que se van a mostrar en la tabla.
 $query = "SELECT * FROM sede WHERE sede_id='$ID'";
@@ -29,6 +24,8 @@ if (mysqli_num_rows($result) > 0) {
   }
 }
 
-//header("Content-Type: application/json");
+header("Content-Type: application/json");
 $json = json_encode($data, JSON_PRETTY_PRINT);
-return $json;
+echo $json;
+
+?>
