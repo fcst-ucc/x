@@ -60,15 +60,12 @@
 
           <script type='text/javascript'>
             function Envio(caller) {
-              /* stop form from submitting normally */
-              event.preventDefault();
-              /* get the action attribute from the <form action=""> element */
-//              var $form = $(this), url = $form.attr('action');
-              var formData = JSON.stringify($("#SEForm").serializeObject());
-              alert(formData);
-              /* Send the data using post with element id name and name2*/
+                //Recibe todas las variables del formulario
+                var formData = JSON.stringify($("#SEForm").serializeObject());
+//              alert(formData);
+                //Envia los datos por POST, con Ajax y JSON
               $.ajax({
-                type: "POST",
+                        type: "POST",
                 url: "content/sedes/SE-RL.php",
                 data: formData,
                 dataType: "json",
