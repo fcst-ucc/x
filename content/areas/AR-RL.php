@@ -7,8 +7,8 @@ try {
   $jsonCont = file_get_contents('php://input');
   $content = json_decode($jsonCont, true);
 
-  $ARName = $content['ARName'];
-  $ARSede = $content['ARSede'];
+  $ARName = "bait";
+  $ARSede = 28;
 
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
   // set the PDO error mode to exception
@@ -18,8 +18,11 @@ try {
   // use exec() because no results are returned
   $conn->exec($sql);
   echo "New record created successfully";
+  
+  //console.log():
 } catch (PDOException $e) {
   echo $sql . "<br>" . $e->getMessage();
+  echo "ERROR 404";
 }
 
 $conn -> null;

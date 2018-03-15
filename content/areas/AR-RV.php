@@ -31,41 +31,29 @@
                       onclick="callModalA('#testModal')">AGREGAR</a>  -->
                 <!--  <input class="btn btn-primary btn-block" type="submit" value="Enviar">-->
                 <a class="btn btn-primary btn-block" data-toggle="modal" 
-                   data-target="#submitModal" href="#">Registrar Area</a>
+             data-target="#submitModal" href="#">Registrar Area</a>
 
                 <script type='text/javascript'>
-                  function Envio(caller) {
-                    /* stop form from submitting normally */
-                    event.preventDefault();
-                    /* get the action attribute from the <form action=""> element */
-                    //              var $form = $(this), url = $form.attr('action');
-                    var formData = JSON.stringify($("#ARForm").serializeObject());
-                    alert(formData);
-                    /* Send the data using post with element id name and name2*/
-                    var posting =
-                            $.ajax({
-                              type: "POST",
-                              url: "content/areas/AR-RL.php",
-                              data: formData,
-                              success: function() {
-                              },
-                              dataType: "json",
-                              contentType: "application/json"
-                            });
-                    //                      $.post("SE-Insert.php",
-                    //                              {ciudadList: $('#SECity').val(),
-                    //                                sedeName: $('#SEName').val(), sedeAddress: $('#SEAddress').val(),
-                    //                                sedeBoss: $('#SEBoss').val(), sedeNum: $('#SEBossNum').val()});
-                    /* Alerts the results */
-                    posting.done(function(data) {
-                    });
+            function Envio(caller) {
+                //Recibe todas las variables del formulario
+                var formData = JSON.stringify($("#ARForm").serializeObject());
+                console.log(formData);
+//              alert(formData);
+                //Envia los datos por POST, con Ajax y JSON
+              $.ajax({
+                        type: "POST",
+                url: "content/areas/AR-RL.php",
+                data: formData,
+                dataType: "json",
+                contentType: "application/json",
+                success: function() {
+                },
+              });
 
-                    $(caller).modal('hide');
-                    $("#successModal").modal();
-                  }
-                  /* attach a submit handler to the form */
-                  $("#ARForm").submit(Envio);
-                </script>
+              $(caller).modal('hide');
+              $("#successModal").modal();
+            }
+          </script>
 
               </div>
             </div>                    
