@@ -7,8 +7,8 @@ try {
   $jsonCont = file_get_contents('php://input');
   $content = json_decode($jsonCont, true);
 
-  $ARName = "bait";
-  $ARSede = 28;
+  $ARName = $content['ARName'];
+  $ARSede = $content['ARSede'];
 
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
   // set the PDO error mode to exception

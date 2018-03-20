@@ -41,7 +41,7 @@
 //              alert(formData);
                 //Envia los datos por POST, con Ajax y JSON
               $.ajax({
-                        type: "POST",
+                type: "POST",
                 url: "content/areas/AR-RL.php",
                 data: formData,
                 dataType: "json",
