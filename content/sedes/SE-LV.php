@@ -7,67 +7,10 @@
 <link href="vendor/datatables/colReorder.dataTables.min.css" rel="stylesheet">
 <script src="vendor/datatables/dataTables.colReorder.min.js"></script>
 
-<!--<script src="js/sb-admin-datatables.min.js"></script>-->
+<!-- JavaScript de la pagina -->
+<script src="content/sedes/SE-J.js" ></script>
+<script>window.onload = RFunction(1);</script>
 
-<script>
-  function llamarJSON() {
-    $.ajax({
-      url: 'content/sedes/SE-Test.php',
-      dataType: 'json',
-      success: function (json) {
-        //here inside json variable you've the json returned by your PHP
-        alert("\nNombre: " + json[0].name +
-                "\nCiudad: " + json[0].city +
-                "\nDir: " + json[0].dir +
-                "\nJefe: " + json[0].jefe +
-                "\nNum: " + json[0].num);
-      }
-    });
-  }
-
-  $(document).ready(function () {
-    var table = $('#dataTable').DataTable({
-      "ajax": 'content/sedes/SE-LL.php',
-//      colReorder: true,
-      "columnDefs": [{
-          "targets": 0,
-          "data": null,
-          "defaultContent": "\
-            \ <a class='btn btn-detail btn-secondary text-white'> \
-            \ <span class='fa fa-w fa-list-ul'></span></a> \
-            \ <a class='btn btn-delete btn-danger text-white'> \
-            \ <span class='fa fa-w fa-times'></span></a> \
-            \ <a class='btn btn-update btn-warning text-white'> \
-            \<span class='fa fa-w fa-edit'></span></a>"}]
-    });
-//    llamarJSON();
-    $('#dataTable tbody').on('click', '.btn-delete', function () {
-      var rowData = table.row($(this).parents('tr')).data();
-      var obj = {"id": rowData[0]};
-      var formData = JSON.stringify(obj);
-      $.ajax({
-        type: "POST",
-        url: "content/sedes/SE-DL.php",
-        data: formData,
-        dataType: "json",
-        contentType: "application/json",
-        success: function () {}
-      });
-      callModal('#logoutModal');
-      table.ajax.reload();
-    });
-
-    $('#dataTable tbody').on('click', '.btn-update', function () {
-      var rowData = table.row($(this).parents('tr')).data();
-      localStorage.SEUid = rowData[0];
-      changeHash('SEU');
-    });
-
-  });
-
-
-
-</script>
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
   <li class="breadcrumb-item">

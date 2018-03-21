@@ -9,7 +9,7 @@ $dbname = "fcst";
 // Este visaje funciona con Node.JS, o con alguna manera de generar ficheros de JSON
   try {
     
-    $jsonCont= file_get_contents('test.json');
+    $jsonCont= file_get_contents('Example-JSON_Array.json');
     $content= json_decode($jsonCont, true);
     
     $CityID=$content['must']['JSON_cityId'];

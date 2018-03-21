@@ -1,34 +1,11 @@
 <!-- Contenido de la pagina -->
-<script>
-  var abc = Number(localStorage.SEUid);
-  var test;
-  //Con esto se borra el id que viene de la otra pagina
-//  localStorage.removeItem("SEUid");
-//  alert(localStorage.SEUid);
-  var obj = {"id": abc};
-  var formData = JSON.stringify(obj);
-  $.ajax({
-    type: "POST",
-    data: formData,
-    dataType: 'json',
-    url: 'content/sedes/SE-UL.php',
-    success: function(json) {
-      test = json;
-      colocarDatos();
-    }
-  });
 
-  function colocarDatos() {    
-      document.getElementById("SEName").value = test[0].name;
-      document.getElementById("SEAddress").value = test[0].dir;
-      document.getElementById("SEBoss").value = test[0].jefe;
-      document.getElementById("SEBossNum").value = test[0].num;
-      document.getElementById("SECity").value=test[0].city;
-      toogle('SECity', 'FCSTHidden');
-  }
-</script>
+<!-- JavaScript de la pagina -->
+<script src="content/sedes/SE-J.js" ></script>
+<script>window.onload = UFunction(1);</script>
+
 <div class="row">
-  <div id="anchoForm" class="col-6">
+  <div id="anchoForm" class="col-10">
     <div class="card mt-3 ml-3">
       <div class="card-header text-center"><b>Registro de nueva sede</b></div>
       <div class="card-body">
@@ -36,91 +13,44 @@
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputName">Nombre de la sede</label>
-                <input class="form-control" id="SEName" name="SEName" type="text" placeholder="E.g. Calambeo">
+                <label for="SEName">Nombre de la sede</label>
+                <input class="form-control" id="SEName" name="SEName" type="text">
               </div>
               <div class="col-md-6">
-                <label for="exampleInputName">Direccion de la sede</label>
-                <input class="form-control" id="SEAddress" name="SEAddress" type="text" placeholder="E.g. Avenida 19 #13-2">
+                <label for="SEAddress">Direccion de la sede</label>
+                <input class="form-control" id="SEAddress" name="SEAddress" type="text">
               </div>
             </div>
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputName">Ciudad de la sede</label>
-                <select class="form-control" id="SECity" name="SECity" onchange="toogle('SECity', 'FCSTHidden')">
-                  <option value="" selected disabled hidden>Seleccione</option>
-                  <?php
-                  //PHP Request to get the dropdown options for this list. Hidden content.
-                  ?>
-                  <!--Para este Select List, voy a hacer dos cosas:
-                  1. Voy a hacer que al escoger la opcion "Agregar Nueva Ciudad", 
-                  aparezca una ventana modal con un formulario para agregar ciudades
-                  2. Voy a intentar poblar la lista con una llamada AJAX y JSON, 
-                  para mas seguridad a la hora de recibir los datos de la BD.-->
-                  <option value="0">Cosita 1</option>
-                  <option value="1">Agregar Nueva Ciudad</option> 
-                </select>
-              </div>
-              <div class="FCSTHidden col-md-6">
-                <label for="exampleInputName">Nombre de la ciudad</label>
-                <input class="form-control" id="SECityName" name="SECityName" type="text" placeholder="E.g. Bogota">
+                <label for="SEGroup">Localizacion de la sede</label>
+                <div class="input-group" id="SEGroup">
+                  <input type="text" name="SELocation" class="form-control" 
+                         placeholder="Clic para buscar una localizacion" disabled>
+                  <div class="input-group-append">
+                    <button id="SELocation" class="btn btn-outline-secondary" type="button">
+                      <i class="fa fa-fw fa-plus"></i></button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="FCSTHidden form-group">
+          <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputName">Responsable de la sede</label>
-                <input class="form-control" id="SEBoss" name="SEBoss" type="text" placeholder="E.g. Pepito Perez">
+                <label for="SEBoss">Responsable de la sede</label>
+                <input class="form-control" id="SEBoss" name="SEBoss" type="text">
               </div>
               <div class="col-md-6">
-                <label for="exampleInputName">Numero de contacto</label>
-                <input class="form-control" id="SEBossNum" name="SEBossNum" type="text" placeholder="E.g. 3192760584">
+                <label for="SEBossNum">Numero de contacto</label>
+                <input class="form-control" id="SEBossNum" name="SEBossNum" type="text" >
               </div>                
             </div>
           </div>
-<!--          <input class="btn btn-primary btn-block" type="submit" value="Enviar">-->
-
           <a class="btn btn-primary btn-block" data-toggle="modal" 
              data-target="#submitModal" href="#">Registrar Sede</a>
-
-          <script type='text/javascript'>
-            function Envio(caller) {
-              /* stop form from submitting normally */
-              event.preventDefault();
-              /* get the action attribute from the <form action=""> element */
-//              var $form = $(this), url = $form.attr('action');
-              var formData = JSON.stringify($("#SEForm").serializeObject());
-              alert(formData);
-              /* Send the data using post with element id name and name2*/
-              var posting =
-                      $.ajax({
-                        type: "POST",
-                        url: "content/sedes/SE-RL.php",
-                        data: formData,
-                        success: function() {
-                        },
-                        dataType: "json",
-                        contentType: "application/json"
-                      });
-//                      $.post("SE-Insert.php",
-//                              {ciudadList: $('#SECity').val(),
-//                                sedeName: $('#SEName').val(), sedeAddress: $('#SEAddress').val(),
-//                                sedeBoss: $('#SEBoss').val(), sedeNum: $('#SEBossNum').val()});
-              /* Alerts the results */
-              posting.done(function(data) {
-              });
-
-              $(caller).modal('hide');
-              $("#successModal").modal();
-            }
-            /* attach a submit handler to the form */
-            $("#SEForm").submit(Envio);
-          </script>
-
-
         </form>
       </div>
     </div>

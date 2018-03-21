@@ -21,13 +21,13 @@ function hashLoad() {
       moduleLoad('mod', 'content/carfam/CF-RV.php', 'Registro de caracterizacion familiar');
       break;
     case "SEL":
-      moduleLoad('mod', 'content/sedes/SE-LV.php', 'Lista de sedes');
+      moduleLoad('mod', 'content/sedes/SE-LV.php', 'Lista de sedes', 'content/sedes/SE-LM.php');
       break;
     case "SER":
-      moduleLoad('mod', 'content/sedes/SE-RV.php', 'Registro de nueva sede', 'content/sedes/TE-M.php');
+      moduleLoad('mod', 'content/sedes/SE-RV.php', 'Registro de sede', 'content/sedes/SE-RM.php');
       break;
     case "SEU":
-      moduleLoad('mod', 'content/sedes/SE-UV.php', 'Edicion de sedes');
+      moduleLoad('mod', 'content/sedes/SE-UV.php', 'Edicion de sede', 'content/sedes/SE-UM.php');
       break;
     case "FAL":
       moduleLoad('mod', 'content/fases/FA-LV.php', 'Lista de fases');
